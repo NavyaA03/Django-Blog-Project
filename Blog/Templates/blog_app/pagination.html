@@ -1,0 +1,13 @@
+<div class="paginator">
+  {%if page.has_previous%}<!-- oly if previous page is there -->
+    <a href="?page={{page.previous_page_number}}">Previous</a>
+  {%endif%}
+
+      page {{page.number}} of {{page.paginator.num_pages}} <!-- page 1 of 3  -->
+
+
+  {%if page.has_next%}  <!-- oly if next page is there -->
+    <a href="?page={{page.next_page_number}}">Next</a>
+  {%endif%}
+
+</div>

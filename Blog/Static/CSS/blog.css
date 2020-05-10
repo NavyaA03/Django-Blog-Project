@@ -1,0 +1,35 @@
+.content{
+  width :60%;
+  float: left;
+  margin: auto;
+  /* padding: 0 0 0 30px; */
+  /* background-color: gold; specifying entire body to gold in body block*/
+}
+.sidebar{
+  width: 40%;
+  float: right;
+  /* padding: 30px; */
+  background-color: grey;
+}
+h1{
+  text-align: center;
+  border-bottom: 2px solid red;
+  padding-bottom: 10px;
+}
+
+body{
+  background:gold;
+}
+
+#styling
+{
+  font-style: italic;
+  font-size: 15px;
+  color: green;
+}
+#count
+{
+  color: yellow;
+  font-size: 40px;
+  font-weight: bold;
+}

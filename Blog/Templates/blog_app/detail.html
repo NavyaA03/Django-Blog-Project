@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{%extends "blog_app/base.html"%}
+
+    {%block title%}
+      {{post_detail.title}}
+    {%endblock%}
+
+    {%block content%}
+
+
+            <p id="styling">Published on {{post_detail.created}} by {{post_detail.author|title}}</p>
+             <h3 align='center'>{{post_detail.body|linebreaks}}</h3>
+             <div class="container" align="center">
+                 <a href="/{{post_detail.id}}/share" class="btn btn-success">Send Blog As Email</a>
+                 <br><br>
+             </div>
+
+              <h2>comment section</h2>
+              <!-- display the count of comments  -->
+                {%with comments.count as comments_count%}
+                  <h4>{{comments_count}} comment{{comments_count|pluralize}}</h4>
+                {%endwith%}
+
+                <!-- display the comments  -->
+                {%if comments%}
+
+                    {%for comment in comments%}
+                        <h2>{{comment.Name}} posted comment on {{comment.created}}</h2><br>
+                        <h4>{{comment.Body_comment|linebreaks}}</h4>
+                    {%endfor%}
+
+                {%else%}
+                      <h1>No comments on the post</h1>
+                {%endif%}
+
+
+               <!-- display form if comment is not submitted -->
+                 {%if comment_submit%}
+                      <h1>Thank you for giving your valuable opinion</h1>
+                {%else%}
+                    <form method="POST">
+                      {%csrf_token%}
+                      {{form.as_p}}
+                      <input type="submit" value="Submit Comment" class="btn btn-success">
+                    </form>
+                {%endif%}
+
+
+
+    {%endblock%}
